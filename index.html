@@ -2,299 +2,227 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Sindhiya 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Do you love me?</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #1a0010 0%, #3d0030 40%, #1a0010 100%);
-      font-family: "Quicksand", sans-serif;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* Falling hearts */
-    .hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
-    .heart-fall {
-      position: absolute;
-      top: -60px;
-      font-size: 1.5rem;
-      animation: fallDown linear infinite;
-      opacity: 0.7;
-    }
-    @keyframes fallDown {
-      0% { transform: translateY(-60px) rotate(0deg); opacity: 0.8; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-    }
-
-    .main {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px 60px;
-      text-align: center;
-    }
-
-    .top-msg {
-      font-family: "Dancing Script", cursive;
-      font-size: 2rem;
-      color: #ffb3d9;
-      margin-bottom: 10px;
-      animation: fadeInDown 1s ease;
-    }
-
-    .birthday-title {
-      font-family: "Dancing Script", cursive;
-      font-size: clamp(3rem, 10vw, 6rem);
-      background: linear-gradient(90deg, #ff80bf, #ffcce0, #ff54a4, #ffb3d9);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeInDown 1.2s ease, shimmer 3s linear infinite;
-      background-size: 200% auto;
-      text-shadow: none;
-      margin-bottom: 0.2em;
-    }
-
-    @keyframes shimmer { to { background-position: 200% center; } }
-
-    .name {
-      font-family: "Dancing Script", cursive;
-      font-size: clamp(3.5rem, 12vw, 7rem);
-      color: #fff;
-      text-shadow: 0 0 30px #ff54a4, 0 0 60px #ff54a4, 0 0 100px #ff80bf;
-      animation: pulse 2s ease-in-out infinite, fadeInDown 1.5s ease;
-      margin-bottom: 10px;
-    }
-
-    @keyframes pulse { 0%,100% { text-shadow: 0 0 30px #ff54a4, 0 0 60px #ff54a4; } 50% { text-shadow: 0 0 50px #ff80bf, 0 0 100px #ff80bf, 0 0 150px #ffb3d9; } }
-
-    /* Photo frame */
-    .photo-frame {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff54a4, #ffb3d9, #ff54a4);
-      padding: 5px;
-      margin: 20px auto;
-      animation: rotateBorder 4s linear infinite, fadeIn 2s ease;
-      box-shadow: 0 0 40px rgba(255, 84, 164, 0.8);
-    }
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-    }
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #3d0030, #1a0010);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: #ffb3d9;
-      font-size: 3rem;
-    }
-    .photo-placeholder span { font-size: 0.9rem; margin-top: 8px; }
-
-    @keyframes rotateBorder { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-
-    /* Cake */
-    .cake-section {
-      margin: 20px 0;
-      animation: fadeIn 2s ease;
-    }
-    .cake {
-      font-size: 5rem;
-      animation: bounce 1.5s ease-in-out infinite;
-      display: inline-block;
-      filter: drop-shadow(0 0 20px rgba(255,150,50,0.8));
-    }
-    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-
-    /* Candles row */
-    .candles {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      margin: 10px 0 20px;
-      flex-wrap: wrap;
-    }
-    .candle {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: candleFlicker 0.15s ease-in-out infinite alternate;
-    }
-    .candle:nth-child(2) { animation-delay: 0.05s; }
-    .candle:nth-child(3) { animation-delay: 0.1s; }
-    .flame {
-      font-size: 1.8rem;
-      filter: drop-shadow(0 0 8px rgba(255,200,0,0.9));
-    }
-    .stick {
-      width: 16px;
-      height: 55px;
-      background: linear-gradient(90deg, #ff80bf, #ff54a4, #ff80bf);
-      border-radius: 3px;
-      box-shadow: 0 0 10px rgba(255, 84, 164, 0.5);
-    }
-    @keyframes candleFlicker { 0% { transform: scaleX(1); } 100% { transform: scaleX(0.97) translateY(-1px); } }
-
-    /* Message */
-    .message-box {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255, 84, 164, 0.3);
-      border-radius: 24px;
-      padding: 28px 36px;
-      max-width: 560px;
-      margin: 20px auto;
-      backdrop-filter: blur(10px);
-      animation: fadeInUp 2s ease;
-    }
-    .message-box p {
-      color: #ffcce0;
-      font-size: 1.2rem;
-      line-height: 1.9;
-    }
-    .message-box .highlight {
-      color: #ff80bf;
-      font-weight: 700;
-    }
-
-    /* Sparkles row */
-    .sparkles {
-      font-size: 2rem;
-      margin: 10px 0;
-      animation: spin 4s linear infinite;
-    }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-    /* Confetti */
-    .confetti-piece {
+    /* ── Password Overlay ── */
+    #password-overlay {
       position: fixed;
-      top: -10px;
-      width: 10px;
-      height: 10px;
-      border-radius: 2px;
-      animation: confettiFall linear infinite;
-      z-index: 0;
-      pointer-events: none;
+      inset: 0;
+      z-index: 9999;
+      background: linear-gradient(135deg, #1a0010 0%, #3d0030 50%, #1a0010 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      font-family: "Quicksand", sans-serif;
     }
-    @keyframes confettiFall {
-      0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    .lock-icon { font-size: 4rem; animation: lockBounce 2s ease-in-out infinite; }
+    @keyframes lockBounce {
+      0%,100% { transform: translateY(0) rotate(-5deg); }
+      50%      { transform: translateY(-12px) rotate(5deg); }
     }
-
-    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-    .bottom-hearts { font-size: 2.5rem; margin-top: 20px; animation: pulse 2s ease-in-out infinite; }
-    .year-badge {
-      background: linear-gradient(135deg, #ff54a4, #ffb3d9);
-      color: white;
-      font-weight: 700;
-      font-size: 1.1rem;
+    .overlay-title {
+      font-family: "Dancing Script", cursive;
+      font-size: 2.4rem;
+      color: #ffb3d9;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .overlay-subtitle {
+      color: #ff80bf;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+    .pw-input-wrap {
+      position: relative;
+      width: 300px;
+    }
+    .pw-input-wrap input {
+      width: 100%;
+      padding: 14px 50px 14px 20px;
       border-radius: 50px;
-      padding: 8px 24px;
-      display: inline-block;
-      margin-top: 16px;
-      box-shadow: 0 4px 20px rgba(255, 84, 164, 0.5);
+      border: 2px solid rgba(255,84,164,0.4);
+      background: rgba(255,255,255,0.07);
+      color: white;
+      font-family: "Quicksand", sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      outline: none;
+      text-align: center;
+      transition: border 0.3s, box-shadow 0.3s;
     }
+    .pw-input-wrap input::placeholder { letter-spacing: 1px; color: rgba(255,179,217,0.5); }
+    .pw-input-wrap input:focus {
+      border-color: #ff54a4;
+      box-shadow: 0 0 20px rgba(255,84,164,0.4);
+    }
+    .toggle-eye {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 1.2rem;
+      user-select: none;
+    }
+    .unlock-btn {
+      background: linear-gradient(135deg, #ff54a4, #ff80bf);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 40px;
+      font-family: "Quicksand", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,84,164,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .unlock-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 6px 28px rgba(255,84,164,0.7);
+    }
+    .pw-error {
+      color: #ff6b6b;
+      font-size: 0.95rem;
+      min-height: 22px;
+      animation: shake 0.4s ease;
+    }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20%,60%  { transform: translateX(-8px); }
+      40%,80%  { transform: translateX(8px); }
+    }
+    .hint-text {
+      color: rgba(255,179,217,0.45);
+      font-size: 0.85rem;
+      margin-top: -10px;
+    }
+    /* fade-out animation */
+    #password-overlay.fade-out {
+      animation: overlayFadeOut 0.7s ease forwards;
+    }
+    @keyframes overlayFadeOut {
+      0%   { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.05); pointer-events: none; }
+    }
+    /* falling hearts in overlay */
+    .overlay-hearts {
+      position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0;
+    }
+    .oh {
+      position: absolute; top: -40px; font-size: 1.3rem;
+      animation: ohFall linear infinite; opacity: 0;
+    }
+    @keyframes ohFall {
+      0%   { transform: translateY(-40px) rotate(0deg); opacity: 0.6; }
+      100% { transform: translateY(110vh)  rotate(360deg); opacity: 0; }
+    }
+    #password-overlay > * { position: relative; z-index: 1; }
   </style>
 </head>
 <body>
 
-<!-- Falling hearts background -->
-<div class="hearts-bg" id="heartsContainer"></div>
+<!-- ══════════ PASSWORD OVERLAY ══════════ -->
+<div id="password-overlay">
+  <div class="overlay-hearts" id="overlayHearts"></div>
 
-<div class="main">
-  <p class="top-msg">🎀 A special message for you 🎀</p>
+  <div class="lock-icon">🔐</div>
+  <p class="overlay-title">This is a secret page<br/>just for someone special 💕</p>
+  <p class="overlay-subtitle">Enter the password to continue...</p>
 
-  <h1 class="birthday-title">Happy Birthday</h1>
-  <h1 class="name">Sindhiya 💖</h1>
-
-  <!-- Photo frame — put sindhiya.jpg/png in same folder -->
-  <div class="photo-frame">
-    <img src="sindhiya.jpg" alt="Sindhiya" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-    <div class="photo-placeholder" style="display:none;">
-      <span>👸</span>
-      <span style="font-size:0.75rem">Add your photo</span>
-    </div>
+  <div class="pw-input-wrap">
+    <input type="password" id="pwInput" placeholder="enter password 🌸" autocomplete="off" />
+    <span class="toggle-eye" id="toggleEye" title="Show/hide">👁️</span>
   </div>
 
-  <!-- Candles -->
-  <div class="candles">
-    <div class="candle"><span class="flame">🔥</span><div class="stick"></div></div>
-    <div class="candle"><span class="flame">🔥</span><div class="stick"></div></div>
-    <div class="candle"><span class="flame">🔥</span><div class="stick"></div></div>
-    <div class="candle"><span class="flame">🔥</span><div class="stick"></div></div>
-    <div class="candle"><span class="flame">🔥</span><div class="stick"></div></div>
+  <button class="unlock-btn" id="unlockBtn">Unlock 💖</button>
+  <p class="pw-error" id="pwError"></p>
+  <p class="hint-text">Hint: it's your milestone this year 🎂</p>
+</div>
+<!-- ══════════════════════════════════════ -->
+
+<div class="question-container container">
+  <video class="local-gif" src="Reply me love.mp4" autoplay muted loop></video>
+  <h2 class="question">Do you love me? 💕</h2>
+  <div class="button-container">
+    <button class="yes-btn btn js-yes-btn">Yes 💖</button>
+    <button class="no-btn btn js-no-btn">No 😒</button>
   </div>
-
-  <!-- Cake -->
-  <div class="cake-section">
-    <span class="cake">🎂</span>
-  </div>
-
-  <div class="sparkles">✨💫✨💫✨</div>
-
-  <!-- Message -->
-  <div class="message-box">
-    <p>
-      On this beautiful day, I just want you to know that
-      <span class="highlight">you mean the whole world to me</span>. 💕<br/><br/>
-      You bring so much joy, warmth, and love into my life every single day.
-      You are <span class="highlight">my favorite person</span>, my sunshine,
-      and my greatest blessing.<br/><br/>
-      May this birthday be as <span class="highlight">magical and wonderful</span> as you are.
-      Wishing you endless smiles, good health, and all the happiness you deserve. 🌸<br/><br/>
-      <span class="highlight">I love you so much, Sindhiya! 💖</span>
-    </p>
-  </div>
-
-  <div class="year-badge">🎉 Making your day extra special 🎉</div>
-  <div class="bottom-hearts">💖 💗 💝 💘 💖</div>
 </div>
 
+<div class="result-container container">
+  <video class="gif-result" src="Love me.mp4" autoplay loop></video>
+  <h2>I knew it 😍!</h2>
+</div>
+
+<div class="cssload-main">
+  <div class="cssload-heart">
+    <span class="cssload-heartL"></span>
+    <span class="cssload-heartR"></span>
+    <span class="cssload-square"></span>
+  </div>
+  <div class="cssload-shadow"></div>
+</div>
+
+<script src="script.js"></script>
+
 <script>
-  // Generate falling hearts
-  const heartsContainer = document.getElementById("heartsContainer");
-  const symbols = ["💕", "💖", "💗", "💝", "🌸", "✨", "💫", "🎀", "💞"];
-  for (let i = 0; i < 30; i++) {
-    const h = document.createElement("div");
-    h.classList.add("heart-fall");
-    h.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-    h.style.left = `${Math.random() * 100}%`;
-    h.style.animationDuration = `${4 + Math.random() * 8}s`;
-    h.style.animationDelay = `${Math.random() * 6}s`;
-    h.style.fontSize = `${1 + Math.random() * 1.5}rem`;
-    heartsContainer.appendChild(h);
+  /* ── Password logic ── */
+  const CORRECT = "turning23";
+  const overlay  = document.getElementById("password-overlay");
+  const pwInput  = document.getElementById("pwInput");
+  const unlockBtn= document.getElementById("unlockBtn");
+  const pwError  = document.getElementById("pwError");
+  const toggleEye= document.getElementById("toggleEye");
+
+  // Falling hearts inside overlay
+  const oHearts = document.getElementById("overlayHearts");
+  const syms = ["💕","💖","💗","🌸","✨","💫","🎀"];
+  for (let i = 0; i < 18; i++) {
+    const el = document.createElement("div");
+    el.classList.add("oh");
+    el.textContent = syms[i % syms.length];
+    el.style.left = `${Math.random() * 100}%`;
+    el.style.animationDuration = `${5 + Math.random() * 7}s`;
+    el.style.animationDelay    = `${Math.random() * 6}s`;
+    el.style.fontSize = `${1 + Math.random() * 1.2}rem`;
+    oHearts.appendChild(el);
   }
 
-  // Generate confetti
-  const colors = ["#ff54a4","#ffb3d9","#ff80bf","#ffd700","#ff6b6b","#c084fc"];
-  for (let i = 0; i < 40; i++) {
-    const c = document.createElement("div");
-    c.classList.add("confetti-piece");
-    c.style.left = `${Math.random() * 100}%`;
-    c.style.background = colors[Math.floor(Math.random() * colors.length)];
-    c.style.animationDuration = `${3 + Math.random() * 5}s`;
-    c.style.animationDelay = `${Math.random() * 5}s`;
-    c.style.width = `${6 + Math.random() * 8}px`;
-    c.style.height = `${6 + Math.random() * 8}px`;
-    document.body.appendChild(c);
+  // Toggle show/hide password
+  toggleEye.addEventListener("click", () => {
+    const show = pwInput.type === "password";
+    pwInput.type = show ? "text" : "password";
+    toggleEye.textContent = show ? "🙈" : "👁️";
+  });
+
+  function tryUnlock() {
+    if (pwInput.value.trim().toLowerCase() === CORRECT) {
+      pwError.textContent = "✅ Welcome! Opening...";
+      pwError.style.color = "#88ffcc";
+      overlay.classList.add("fade-out");
+      overlay.addEventListener("animationend", () => overlay.remove(), { once: true });
+    } else {
+      pwError.textContent = "❌ Wrong password. Try again 💔";
+      pwError.style.color = "#ff6b6b";
+      // re-trigger shake by cloning
+      pwError.style.animation = "none";
+      void pwError.offsetWidth;
+      pwError.style.animation = "";
+      pwInput.value = "";
+      pwInput.focus();
+    }
   }
+
+  unlockBtn.addEventListener("click", tryUnlock);
+  pwInput.addEventListener("keydown", (e) => { if (e.key === "Enter") tryUnlock(); });
 </script>
 </body>
 </html>
